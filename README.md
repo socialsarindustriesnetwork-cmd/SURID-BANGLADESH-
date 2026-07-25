@@ -1,83 +1,62 @@
-# SURID Bangladesh Web Platform
+# SURID Bangladesh — GitHub Pages public site
 
-Production-oriented Next.js platform for SURID Bangladesh. The project includes the public organization website, verified server-backed contact workflows, a fail-safe donation-instructions request, an isolated safeguarding integration point, and an optional Gemini information assistant.
+A trust-first, accessible and responsive public-information website for SURID Bangladesh.
 
-## Safety model
+## Live site
 
-- A form displays success only after its configured HTTPS webhook confirms delivery.
-- Donation submission is a **request for verified instructions**, not a payment transaction or receipt.
-- PSEA/safeguarding reporting is disabled by default and cannot share the ordinary forms endpoint.
-- The AI assistant does not accept safeguarding reports or confirm donations.
-- API routes validate payloads, apply request limits, bound message size, and return generic public errors.
+https://socialsarindustriesnetwork-cmd.github.io/SURID-BANGLADESH-/
 
-## Requirements
+## Pages v2.0
 
-- Node.js 22.6 or newer
-- npm 10 or newer
-- HTTPS webhook receivers for any enabled submission workflows
-- Optional Gemini API key for the public information assistant
+The polished release replaces the original single-page prototype with a structured 12-page public site and a reusable design system.
 
-## Local setup
+Included:
 
-```bash
-cp .env.example .env.local
-npm install
-npm run dev
-```
+- Responsive multi-page information architecture
+- English/Bangla interface controls for key public copy
+- Light and dark appearance modes
+- Accessible navigation, skip links, focus states and reduced-motion support
+- Programme filtering and structured intervention-sector content
+- Governance and registration information with verification labels
+- Reports index that does not invent unavailable publications
+- Safe donation-instructions request flow
+- Dedicated safeguarding/PSEA, privacy and accessibility pages
+- Search metadata, canonical URLs, Open Graph data, JSON-LD, sitemap and robots rules
+- Progressive Web App manifest, offline fallback, service worker and custom 404 page
+- Automated internal-link, document-structure and safety-language validation
 
-Open `http://localhost:3000`.
+## Safety boundaries
 
-## Required environment variables
-
-See `.env.example` for the complete list.
-
-At minimum, configure:
-
-```env
-NEXT_PUBLIC_SITE_URL="https://suridbangladesh.com"
-FORMS_WEBHOOK_URL="https://your-secure-endpoint.example/forms"
-FORMS_WEBHOOK_SECRET="replace-with-a-long-random-secret"
-DONATION_WEBHOOK_URL="https://your-secure-endpoint.example/donations"
-DONATION_WEBHOOK_SECRET="replace-with-a-different-long-secret"
-```
-
-Keep safeguarding disabled until an isolated protected case-management endpoint is operational:
-
-```env
-NEXT_PUBLIC_PSEA_FORM_ENABLED="false"
-PSEA_WEBHOOK_URL=""
-PSEA_WEBHOOK_SECRET=""
-```
-
-## Quality commands
-
-```bash
-npm run typecheck
-npm run lint
-npm test
-npm run build
-npm run check
-```
+- GitHub Pages does not process payments, confirm donations or issue receipts.
+- Donation actions request verified instructions from SURID Bangladesh.
+- The public static site does not accept safeguarding/PSEA case reports through a general form or mailbox.
+- Reports, registrations, metrics and programme claims must be verified against authorized organizational records before publication.
+- The server-backed Next.js APIs, private webhooks, AI assistant and protected case-management integrations require a separate Node.js deployment.
 
 ## Deployment
 
-The application requires a Node.js runtime because it contains API routes. It is not a static-export-only site.
+The GitHub Actions workflow reconstructs the checksummed release bundle, validates all static pages and local asset references, and publishes the resulting `_site` artifact to GitHub Pages after every push to `main`.
 
-```bash
-npm install
-npm run build
-npm run start
+Release checksum:
+
+```text
+7acb001318b0bda844171775d6410c1538a9b813ae0f515391f1a7b531cd45bb  SURID-Bangladesh-Pages-v2.0.0.tar.xz
 ```
 
-See `docs/DEPLOYMENT.md`, `docs/WEBHOOKS.md`, and `SECURITY.md` before production release.
+## Local validation
 
-## Production release gate
+```bash
+python3 scripts/validate_site.py
+node --check assets/js/app.js
+node --check sw.js
+```
 
-Before publishing:
+## Production content gate
 
-1. Verify registration numbers, office details, executive names, public metrics, field stories, partner references, and all program claims with authorized SURID records.
-2. Replace placeholder/stock photography with approved images and documented consent/licensing.
-3. Configure monitored webhook endpoints and test failure handling.
-4. Keep PSEA disabled until the safeguarding focal point approves the protected workflow.
-5. Confirm donation instructions through the receiving desk and payment provider; never infer payment status from a browser submission.
-6. Run `npm run check` in CI.
+Before treating the public site as the organization’s final authoritative record:
+
+1. Verify office details, registrations, governance names, programme metrics and operational areas.
+2. Upload only approved photographs with documented consent and licensing.
+3. Publish annual reports and policies only after organizational approval.
+4. Confirm the official donation channel directly with the responsible finance team.
+5. Keep safeguarding reporting separate from ordinary contact and donation workflows.
