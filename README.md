@@ -1,85 +1,73 @@
-# SURID Bangladesh — modern GitHub Pages application
+# SURID Bangladesh — package-enhanced GitHub Pages application
 
-A trust-first, accessible and responsive public-information platform and design system for SURID Bangladesh.
+A trust-first, accessible and responsive public-information platform for SURID Bangladesh. Version 4 expands the project into a 23-page static web application with modern UI components, structured content data, offline support and progressive package integrations.
 
 ## Live site
 
 https://socialsarindustriesnetwork-cmd.github.io/SURID-BANGLADESH-/
 
-## Pages v3.0
+## Pages v4.0
 
-Version 3 expands the site into an 18-page static web application with a reusable modern component and asset library.
+### Integrated packages
 
-### Modern interface
+The static application loads version-pinned browser modules as progressive enhancements and keeps functional local fallbacks when a CDN package is unavailable.
 
-- Animated gradient-mesh backgrounds and ambient visual effects
-- Responsive bento grids, glass panels, cards, badges and metric widgets
-- Light/dark modes and English/Bangla interface controls
-- Reading progress, scroll reveals, animated counters and progress indicators
-- Keyboard-accessible command search with Ctrl/Command + K
-- Mobile navigation, filters, tabs, accordions and structured calls to action
+- Fuse.js — fuzzy full-site search
+- Chart.js — accessible dashboard and taxonomy charts
+- Leaflet — interactive operational-area map
+- Swiper — touch-enabled stories and media carousels
+- GLightbox — keyboard-accessible media lightbox
+- Tippy.js — contextual tooltips
+- Motion — interface and scroll animations
+- Day.js — dates and Bangladesh-local time formatting
+- idb-keyval — IndexedDB persistence for bookmarks and drafts
+- QRCode — shareable page QR codes
 
-### Components, charts and assets
+### Application features
 
-- Reusable buttons, links, forms, navigation, alerts and feedback elements
-- SVG icon sprite and branded vector illustrations
-- Dedicated UI component reference page
-- Downloadable media and asset library page
-- Accessible chart widgets with semantic tables and descriptions
-- Programme, report and resource filtering controls
+- 23 responsive public pages
+- Dashboard, map, search, tools and bookmarks workspaces
+- English/Bangla controls and light/dark appearance modes
+- Command search with Ctrl/Command + K
+- Content bookmarks with IndexedDB/localStorage fallback
+- Contact-form draft persistence
+- Interactive charts, filters, accordions, tabs and metric widgets
+- Operational-area map with structured location data
+- Carousels, lightbox, tooltips and motion effects
+- Web Share, clipboard, QR and print actions
+- PWA installation controls, service worker and offline fallback
+- Online/offline status feedback
+- Reusable SVG icon, component and media libraries
+- Responsive SEO metadata, canonical URLs, Open Graph, JSON-LD, sitemap and robots rules
 
 ### Pages
 
-- Home
-- About
-- Programmes
-- Impact
-- Stories
-- Partners
-- Reports
-- Media library
-- Component library
-- Governance
-- FAQ
-- Contact
-- Donation instructions
-- Privacy
-- Safeguarding/PSEA
-- Accessibility
-- Offline fallback
-- Custom 404
+Home, About, Programmes, Impact, Stories, Partners, Reports, Media library, Component library, Dashboard, Map, Search, Tools, Bookmarks, Governance, FAQ, Contact, Donation instructions, Privacy, Safeguarding/PSEA, Accessibility, Offline fallback and custom 404.
 
-### Platform features
-
-- Responsive SEO metadata, canonical URLs, Open Graph data and JSON-LD
-- Sitemap and robots rules
-- PWA manifest, service worker and offline behavior
-- Automated internal-link, local-asset, document-structure and safety-language validation
-- GitHub Actions deployment with bundle checksum and JavaScript syntax checks
-
-## Safety boundaries
+## Static safety boundaries
 
 - GitHub Pages does not process payments, confirm donations or issue receipts.
 - Donation actions request verified instructions from SURID Bangladesh.
-- The public static site does not accept safeguarding/PSEA case reports through a general form or mailbox.
-- Charts present programme taxonomy and interface-readiness data, not unverified beneficiary statistics.
-- Reports, registrations, metrics and programme claims must be verified against authorized organizational records before publication.
+- The public website does not accept sensitive safeguarding/PSEA case reports through a general form or mailbox.
+- Charts present programme taxonomy and interface-readiness data rather than unverified beneficiary outcomes.
 - Server-backed APIs, private webhooks, AI processing and protected case-management integrations require a separate secured backend.
 
 ## Deployment
 
-The GitHub Actions workflow reconstructs the checksummed v3 release, validates all pages and local references, verifies JavaScript syntax and publishes the resulting `_site` artifact to GitHub Pages after every push to `main`.
+GitHub Actions reconstructs the checksummed v4 release archive, validates all pages and local references, verifies JavaScript syntax and publishes the complete `_site` artifact.
 
 ```text
-05b4580b104d0940adb1f9dbc3b787edd27d20d021b87af494ce2057b71e0397  SURID-Bangladesh-Pages-v3.0.0.tar.xz
+8229183d03fe7307fd93043fe4d3b583b1632dcc94ef8646512a11c567d05de0  SURID-Bangladesh-Pages-v4.0.0.tar.xz
 ```
 
-## Local validation
+## Local validation and build
 
 ```bash
 python3 scripts/validate_site.py
 node --check assets/js/app.js
+node --check assets/js/packages.js
 node --check sw.js
+node scripts/build.mjs
 ```
 
 ## Production content gate
