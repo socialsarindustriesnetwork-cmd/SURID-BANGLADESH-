@@ -1,46 +1,77 @@
-# SURID Bangladesh — GitHub Pages public site
+# SURID Bangladesh — modern GitHub Pages application
 
-A trust-first, accessible and responsive public-information website for SURID Bangladesh.
+A trust-first, accessible and responsive public-information platform and design system for SURID Bangladesh.
 
 ## Live site
 
 https://socialsarindustriesnetwork-cmd.github.io/SURID-BANGLADESH-/
 
-## Pages v2.0
+## Pages v3.0
 
-The polished release replaces the original single-page prototype with a structured 12-page public site and a reusable design system.
+Version 3 expands the site into an 18-page static web application with a reusable modern component and asset library.
 
-Included:
+### Modern interface
 
-- Responsive multi-page information architecture
-- English/Bangla interface controls for key public copy
-- Light and dark appearance modes
-- Accessible navigation, skip links, focus states and reduced-motion support
-- Programme filtering and structured intervention-sector content
-- Governance and registration information with verification labels
-- Reports index that does not invent unavailable publications
-- Safe donation-instructions request flow
-- Dedicated safeguarding/PSEA, privacy and accessibility pages
-- Search metadata, canonical URLs, Open Graph data, JSON-LD, sitemap and robots rules
-- Progressive Web App manifest, offline fallback, service worker and custom 404 page
-- Automated internal-link, document-structure and safety-language validation
+- Animated gradient-mesh backgrounds and ambient visual effects
+- Responsive bento grids, glass panels, cards, badges and metric widgets
+- Light/dark modes and English/Bangla interface controls
+- Reading progress, scroll reveals, animated counters and progress indicators
+- Keyboard-accessible command search with Ctrl/Command + K
+- Mobile navigation, filters, tabs, accordions and structured calls to action
+
+### Components, charts and assets
+
+- Reusable buttons, links, forms, navigation, alerts and feedback elements
+- SVG icon sprite and branded vector illustrations
+- Dedicated UI component reference page
+- Downloadable media and asset library page
+- Accessible chart widgets with semantic tables and descriptions
+- Programme, report and resource filtering controls
+
+### Pages
+
+- Home
+- About
+- Programmes
+- Impact
+- Stories
+- Partners
+- Reports
+- Media library
+- Component library
+- Governance
+- FAQ
+- Contact
+- Donation instructions
+- Privacy
+- Safeguarding/PSEA
+- Accessibility
+- Offline fallback
+- Custom 404
+
+### Platform features
+
+- Responsive SEO metadata, canonical URLs, Open Graph data and JSON-LD
+- Sitemap and robots rules
+- PWA manifest, service worker and offline behavior
+- Automated internal-link, local-asset, document-structure and safety-language validation
+- GitHub Actions deployment with bundle checksum and JavaScript syntax checks
 
 ## Safety boundaries
 
 - GitHub Pages does not process payments, confirm donations or issue receipts.
 - Donation actions request verified instructions from SURID Bangladesh.
 - The public static site does not accept safeguarding/PSEA case reports through a general form or mailbox.
+- Charts present programme taxonomy and interface-readiness data, not unverified beneficiary statistics.
 - Reports, registrations, metrics and programme claims must be verified against authorized organizational records before publication.
-- The server-backed Next.js APIs, private webhooks, AI assistant and protected case-management integrations require a separate Node.js deployment.
+- Server-backed APIs, private webhooks, AI processing and protected case-management integrations require a separate secured backend.
 
 ## Deployment
 
-The GitHub Actions workflow reconstructs the checksummed release bundle, validates all static pages and local asset references, and publishes the resulting `_site` artifact to GitHub Pages after every push to `main`.
-
-Release checksum:
+The GitHub Actions workflow reconstructs the checksummed v3 release, validates all pages and local references, verifies JavaScript syntax and publishes the resulting `_site` artifact to GitHub Pages after every push to `main`.
 
 ```text
-7acb001318b0bda844171775d6410c1538a9b813ae0f515391f1a7b531cd45bb  SURID-Bangladesh-Pages-v2.0.0.tar.xz
+05b4580b104d0940adb1f9dbc3b787edd27d20d021b87af494ce2057b71e0397  SURID-Bangladesh-Pages-v3.0.0.tar.xz
 ```
 
 ## Local validation
