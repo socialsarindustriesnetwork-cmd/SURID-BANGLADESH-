@@ -24,13 +24,13 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v6
 
-      - name: Reconstruct v3 release bundle
+      - name: Reconstruct v4 release bundle
         run: |
-          cat release/v3/site-v3.0.0-*.b64 | base64 --decode > /tmp/site-v3.tar.xz
-          echo "05b4580b104d0940adb1f9dbc3b787edd27d20d021b87af494ce2057b71e0397  /tmp/site-v3.tar.xz" | sha256sum --check -
+          cat release/v4/site-v4.0.0-*.b64 | base64 --decode > /tmp/site-v4.tar.xz
+          echo "8229183d03fe7307fd93043fe4d3b583b1632dcc94ef8646512a11c567d05de0  /tmp/site-v4.tar.xz" | sha256sum --check -
           rm -rf _site
           mkdir -p _site
-          tar -xJf /tmp/site-v3.tar.xz -C _site
+          tar -xJf /tmp/site-v4.tar.xz -C _site
 
       - name: Validate site structure
         run: python3 _site/scripts/validate_site.py
@@ -38,7 +38,9 @@ jobs:
       - name: Validate JavaScript
         run: |
           node --check _site/assets/js/app.js
+          node --check _site/assets/js/packages.js
           node --check _site/sw.js
+          node _site/scripts/build.mjs
 
       - name: Configure Pages
         uses: actions/configure-pages@v5
