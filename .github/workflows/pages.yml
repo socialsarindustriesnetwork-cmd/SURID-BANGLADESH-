@@ -15,7 +15,7 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  deploy:
+  validate-and-deploy:
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
@@ -23,18 +23,25 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v6
+
+      - name: Reconstruct release bundle
+        run: |
+          cat release/chunks/site-v2.0.0-*.b64 | base64 --decode > /tmp/site.tar.xz
+          echo "7acb001318b0bda844171775d6410c1538a9b813ae0f515391f1a7b531cd45bb  /tmp/site.tar.xz" | sha256sum --check -
+          mkdir -p _site
+          tar -xJf /tmp/site.tar.xz -C _site
+
+      - name: Validate static site
+        run: python3 _site/scripts/validate_site.py
+
       - name: Configure Pages
         uses: actions/configure-pages@v5
-      - name: Prepare static site
-        run: |
-          mkdir -p _site
-          cp index.html _site/index.html
-          cp index.html _site/404.html
-          touch _site/.nojekyll
+
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v4
         with:
           path: _site
+
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
